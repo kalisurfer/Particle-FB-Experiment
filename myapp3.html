@@ -1,0 +1,50 @@
+<head>
+  <title>myapp3</title>
+  <script src="http://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
+  <script type="text/javascript">
+    $(window).scroll(function() {
+       if($(window).scrollTop() + $(window).height() == $(document).height()) {
+           console.log("bottom!");
+           fetchMorePhotos();
+       }
+    });
+  </script>
+</head>
+
+<body>
+
+  {{> gridOfImages}}
+  {{> hello}}
+
+
+
+  {{> fbconnect}}
+
+  <div id="container"></div>
+</body>
+
+<template name="hello">
+
+  <h1>Select Friends</h1>
+  {{greeting}}
+
+  <input type="button" value="Get Friends" id="friends" onClick="handleClick(this.id)" />
+  <input type="button" value="Get Pictures" id="photos" onClick="handleClick(this.id)" />
+</template>
+
+<template name="gridOfImages">
+  <h2>Your friends </h2>
+    <ul>
+    {{#each names}}
+    <li><input type="button" value='{{#if selected}}x{{else}}+{{/if}}' id="{{uid}}" class="{{#if selected}}remove{{else}}add{{/if}}" onClick="{{#if selected}}removeClick(this.id){{else}}addClick(this.id){{/if}}" /> {{username}} {{#if selected}} selected{{else}} not selected{{/if}}</li>
+    <!-- <li><input type="checkbox" name="friendID" id="friendID" value="{{uid}}" /> {{username}}</li> -->
+    {{/each}}
+  </ul>
+</template>
+
+<template name="fbconnect">
+    <div id="fb-root"></div>
+    {{connect}}
+    <fb:login-button show-faces="true" width="200" max-rows="1" scope="publish_actions, user_photos, friends_photos">
+    </fb:login-button>
+</template>

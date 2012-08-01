@@ -1,0 +1,23 @@
+/* CSS declarations go here */
+ul li:nth-child(1) {
+	/*margin-left: 50px;*/
+}
+
+li {
+    display: block;
+    width: 306px;
+    float: left;
+    margin: 1px;
+}
+
+h1 {
+	clear:both;
+}
+
+li add {
+	background-color: #ff0000;
+}
+
+li remove {
+	background-color: #000000;
+}

@@ -183,7 +183,7 @@ if (Meteor.is_client) {
 
     bigQuery = bigQuery + "}";
 
-    console.log("built this query " + bigQuery);
+    console.log("built this query yeah dude " + bigQuery);
 
     //  - now send to FB as a multiquery
     FB.api(
